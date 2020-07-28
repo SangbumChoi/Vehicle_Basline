@@ -20,7 +20,7 @@ https://github.com/Zhongdao/VehicleReIDKeyPointData
 
 According to personal CUDA memory allocation main script args have to be changed such as downsizing train batch size
 ```
-python main.py --phase train --use_case stage1 --mGPU --lr 0.0001 --epochs 15 --train_batch_size 64
+python main.py --phase train --use_case stage1 --lr 0.0001 --epochs 15 --train_batch_size 64
 ```
 
 ## Models
