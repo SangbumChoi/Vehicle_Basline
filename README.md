@@ -17,7 +17,8 @@ Be careful of installing the repository of each datasets.
 ## Orientation and Keypoints
 https://github.com/Pirazh/Vehicle_Key_Point_Orientation_Estimation
 https://github.com/Zhongdao/VehicleReIDKeyPointData
-according to personal CUDA memory allocation main script args have to be changed such as downsizing train batch size
+
+According to personal CUDA memory allocation main script args have to be changed such as downsizing train batch size
 ```
 python main.py --phase train --use_case stage1 --mGPU --lr 0.0001 --epochs 15 --train_batch_size 64
 ```
