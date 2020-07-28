@@ -14,31 +14,22 @@ Vehicle ReID baseline is a pytorch-based baseline for training and evaluating de
 
 The keys to use these datasets are enclosed in the parentheses. See vehiclereid/datasets/__init__.py for details.Both two datasets need to pull request to the supplier.
 
+## Orientation and Keypoints
+https://github.com/Pirazh/Vehicle_Key_Point_Orientation_Estimation
+https://github.com/Zhongdao/VehicleReIDKeyPointData
+
 ## Models
 + resnet50
 ## Losses
 + cross entropy loss
 + triplet loss
 
-## Tutorial
+## Tutorial for my private setting
 ### train
 Input arguments for the training scripts are unified in [args.py](./args.py).
 To train an image-reid model with cross entropy loss, you can do
 ```
-python train-xent-tri.py \
--s veri \    #source dataset for training
--t veri \    # target dataset for test
---height 128 \ # image height
---width 256 \ # image width
---optim amsgrad \ # optimizer
---lr 0.0003 \ # learning rate
---max-epoch 60 \ # maximum epoch to run
---stepsize 20 40 \ # stepsize for learning rate decay
---train-batch-size 64 \
---test-batch-size 100 \
--a resnet50 \ # network architecture
---save-dir log/resnet50-veri \ # where to save the log and models
---gpu-devices 0 \ # gpu device index
+python train-xent-tri.py -s veri -t veri --height 128 --width 256 --optim amsgrad --lr 0.0003 --max-epoch 60 --stepsize 20 40 --train-batch-size 64 --test-batch-size 100 -a resnet50 --save-dir log/resnet50-veri --gpu-devices 0
 ```
 ### test
 Use --evaluate to switch to the evaluation mode. In doing so, no model training is performed.
