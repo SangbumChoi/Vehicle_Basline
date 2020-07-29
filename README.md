@@ -34,13 +34,13 @@ python main.py --phase train --use_case stage1 --lr 0.0001 --epochs 15 --train_b
 Input arguments for the training scripts are unified in [args.py](./args.py).
 To train an image-reid model with cross entropy loss, you can do
 ```
-python train-xent-tri.py -s veri -t veri --height 128 --width 256 --optim amsgrad --lr 0.0003 --max-epoch 60 --stepsize 20 40 --train-batch-size 64 --test-batch-size 100 -a resnet50 --save-dir log/resnet50-veri --gpu-devices 0
+python train_xent_tri.py --root ~/daniel/dataset/ -s veri -t veri --height 128 --width 256 --optim amsgrad --lr 0.0003 --max-epoch 60 --stepsize 20 40 --train-batch-size 64 --test-batch-size 100 -a resnet50 --save-dir log/resnet50-veri --gpu-devices 0
 ```
 ### test
 Use --evaluate to switch to the evaluation mode. In doing so, no model training is performed.
 For example you can load pretrained model weights at path_to_model.pth.tar on veri dataset and do evaluation on VehicleID, you can do
 ```
-python train_imgreid_xent.py -s veri -t vehicleID --height 128 --width 256 --test-size 800 --test-batch-size 100 --evaluate -a resnet50 --load-weights path_to_model.pth.tar --save-dir log/eval-veri-to-vehicleID --gpu-devices 0 
+python train_imgreid_xent.py ~/daniel/dataset/ -s veri -t vehicleID --height 128 --width 256 --test-size 800 --test-batch-size 100 --evaluate -a resnet50 --load-weights path_to_model.pth.tar --save-dir log/eval-veri-to-vehicleID --gpu-devices 0 
 ```
 
 ## Results
