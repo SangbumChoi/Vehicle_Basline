@@ -30,6 +30,12 @@ python main.py --phase train --use_case stage1 --lr 0.0001 --epochs 15 --train_b
 + triplet loss
 
 ## Tutorial for my private setting
+
+### VAE train
+```buildoutcfg
+python train_xent_tri.py --root ~/daniel/dataset/ --height 128 --width 256 --optim amsgrad --lr 0.0003 --max-epoch 60 --stepsize 20 40 --train-batch-size 64 --save-dir log/vae-veri --gpu-devices 0
+```
+
 ### train
 Input arguments for the training scripts are unified in [args.py](./args.py).
 To train an image-reid model with cross entropy loss, you can do

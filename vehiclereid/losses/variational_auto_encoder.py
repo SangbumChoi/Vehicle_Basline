@@ -32,7 +32,7 @@ class VAE(nn.Module):
         return F.sigmoid(self.fc6(h))
 
     def forward(self, x):
-        mu, log_var = self.encoder(x.view(-1, 784))
+        mu, log_var = self.encoder(x.view(-1, self.x_dim))
         z = self.sampling(mu, log_var)
 
         return self.decoder(z), mu, log_var

@@ -50,7 +50,7 @@ def main():
     dm = ImageDataManager(use_gpu, **dataset_kwargs(args))
     trainloader, testloader_dict = dm.return_dataloaders()
 
-    model = VAE(x_dim=784, h_dim1= 512, h_dim2=256, z_dim=2)
+    model = VAE(x_dim=args.height*args.width, h_dim1= 512, h_dim2=256, z_dim=2)
 
     if args.load_weights and check_isfile(args.load_weights):
         load_pretrained_weights(model, args.load_weights)
