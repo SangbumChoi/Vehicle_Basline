@@ -115,7 +115,7 @@ def train(epoch, model, optimizer, trainloader, use_gpu):
 
         recon_batch, mu, log_var = model(imgs)
         # VAE loss function
-        BCE = F.binary_cross_entropy(recon_batch, imgs.view(-1), reduction='sum')
+        BCE = F.binary_cross_entropy(recon_batch, imgs.view(-1, args.height*args.width), reduction='sum')
         KLD = -0.5 * torch.sum(1 + log_var - mu.pow(2) - log_var.exp())
         loss = BCE + KLD
 
@@ -156,7 +156,7 @@ def test(model, queryloader, use_gpu):
                 imgs = imgs.cuda()
             recon, mu, log_var = model(imgs)
             # sum up batch loss
-            BCE = F.binary_cross_entropy(recon, imgs.view(-1), reduction='sum')
+            BCE = F.binary_cross_entropy(recon, imgs.view(-1, args.height*args.width), reduction='sum')
             KLD = -0.5 * torch.sum(1 + log_var - mu.pow(2) - log_var.exp())
             loss = BCE + KLD
             test_loss += loss
