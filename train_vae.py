@@ -1,13 +1,10 @@
 from __future__ import print_function
 from __future__ import division
 
-import os
 import sys
 import time
 import datetime
 import os.path as osp
-import numpy as np
-import warnings
 
 import torch
 import torch.nn as nn
@@ -159,3 +156,6 @@ def test(model, queryloader, use_gpu):
 
     test_loss /= len(queryloader.dataset)
     print('====> Test set loss: {:.4f}'.format(test_loss))
+
+if __name__ == '__main__':
+    main()

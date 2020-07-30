@@ -33,7 +33,7 @@ python main.py --phase train --use_case stage1 --lr 0.0001 --epochs 15 --train_b
 
 ### VAE train
 ```buildoutcfg
-python train_xent_tri.py --root ~/daniel/dataset/ --height 128 --width 256 --optim amsgrad --lr 0.0003 --max-epoch 60 --stepsize 20 40 --train-batch-size 64 --save-dir log/vae-veri --gpu-devices 0
+python train_vae.py --root ~/daniel/dataset/ -s veri -t veri --height 128 --width 256 --optim amsgrad --lr 0.0003 --max-epoch 60 --stepsize 20 40 --train-batch-size 64 --save-dir log/vae-veri --gpu-devices 0
 ```
 
 ### train
