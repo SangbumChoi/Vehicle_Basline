@@ -1,6 +1,7 @@
 from __future__ import print_function
 from __future__ import division
 
+import os
 import sys
 import time
 import datetime
@@ -23,6 +24,7 @@ from vehiclereid.utils.iotools import check_isfile
 from vehiclereid.losses import DeepSupervision, VAE
 from vehiclereid.utils.torchtools import count_num_param, accuracy, \
     load_pretrained_weights, save_checkpoint, resume_from_checkpoint
+from vehiclereid.utils.generaltools import set_random_seed
 from vehiclereid.optimizers import init_optimizer
 from vehiclereid.lr_schedulers import init_lr_scheduler
 
@@ -33,6 +35,10 @@ args = parser.parse_args()
 def main():
     global args
 
+    set_random_seed(args.seed)
+    
+    if not args.use_avai_gpus:
+        os.environ['CUDA_VISIBLE_DEVICES'] = args.gpu_devices
     if args.use_cpu:
         use_gpu = False
     log_name = 'log_test.txt' if args.evaluate else 'log_train.txt'
