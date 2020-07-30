@@ -15,6 +15,8 @@ class VAE(nn.Module):
         self.fc4 = nn.Linear(z_dim, h_dim2)
         self.fc5 = nn.Linear(h_dim2, h_dim1)
         self.fc6 = nn.Linear(h_dim1, x_dim)
+        # size import for forward
+        self.x_dim = x_dim
 
     def encoder(self, x):
         h = F.relu(self.fc1(x))
